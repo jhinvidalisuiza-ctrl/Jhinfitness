@@ -19,7 +19,7 @@ function Dashboard() {
 
                 const [{ count: rc }, { count: pc }, { count: pg }] = await Promise.all([
                           supabase.from('recetas').select('*', { count: 'exact', head: true }),
-                          supabase.from('programas_fitness').select('*', { count: 'exact', head: true }),
+                          supabase.from('programas').select('*', { count: 'exact', head: true })
                           supabase.from('registros_progreso').select('*', { count: 'exact', head: true }).eq('user_id', user.id),
                         ]);
                 setStats({ recetas: rc || 0, programas: pc || 0, progresos: pg || 0 });
