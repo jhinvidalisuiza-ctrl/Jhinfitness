@@ -1,0 +1,90 @@
+/* === JhinFitness Global Styles === */
+:root {
+    --primary: #1B2D6E;
+    --primary-dark: #111E4A;
+    --primary-light: #2A45A0;
+    --accent: #F97316;
+    --accent-light: #FB923C;
+    --success: #22C55E;
+    --bg-dark: #0F172A;
+    --bg-card: #1E293B;
+    --bg-light: #F8FAFC;
+    --text-white: #FFFFFF;
+    --text-light: #CBD5E1;
+    --text-muted: #94A3B8;
+    --border: #334155;
+    --font: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: var(--font);
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+/* Utilities */
+.text-accent { color: var(--accent); }
+.text-primary { color: var(--primary-light); }
+.bg-primary { background-color: var(--primary); }
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--primary-light); }
+.btn-accent {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+.btn-accent:hover { background: var(--accent-light); }
