@@ -1,6 +1,4 @@
 {
-  "name": "jhinfitness",
   "buildCommand": "npm run build",
-  "framework": "create-react-app",
-  "env": []
+  "framework": "create-react-app"
 }
