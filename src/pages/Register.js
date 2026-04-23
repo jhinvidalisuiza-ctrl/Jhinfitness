@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
+import { auth, db } from '../firebaseConfig';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
 import { Mail, Lock, User, Eye, EyeOff, AlertCircle, CheckCircle } from 'lucide-react';
 import './Auth.css';
 
@@ -18,16 +20,30 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (form.password !== form.confirm) { setError('Las contrasenas no coinciden.'); return; }
-        if (form.password.length < 6) { setError('La contrasena debe tener al menos 6 caracteres.'); return; }
-        setLoading(true);
-        const { error } = await supabase.auth.signUp({
-                email: form.email, password: form.password,
-                options: { data: { nombre_completo: form.nombre } }
-        });
-        if (error) { setError(error.message); } else { setSuccess(true); setTimeout(() => navigate('/login'), 3000); }
-        setLoading(false);
+    e.preventDefault();
+    if (form.password !== form.confirm) {
+      setError('Las contraseñas no coinciden.');
+      return;
+    }
+    if (form.password.length < 6) {
+      setError('La contraseña debe tener al menos 6 caracteres.');
+      return;
+    }
+    setLoading(true);
+    try {
+      const { user } = await createUserWithEmailAndPassword(auth, form.email, form.password);
+      await updateProfile(user, { displayName: form.nombre });
+      await setDoc(doc(db, 'users', user.uid), {
+        nombre: form.nombre,
+        email: form.email,
+        createdAt: new Date()
+      });
+      setSuccess(true);
+      setTimeout(() => navigate('/login'), 3000);
+    } catch (err) {
+      setError(err.message || 'Error al crear la cuenta');
+    }
+    setLoading(false);
   };
 
   if (success) {

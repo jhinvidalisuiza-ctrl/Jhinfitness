@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
+import { auth } from '../firebaseConfig';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react';
 import './Auth.css';
 
@@ -17,19 +18,16 @@ function Login() {
   };
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError('');
-        const { error } = await supabase.auth.signInWithPassword({
-                email: form.email,
-                password: form.password,
-        });
-        if (error) {
-                setError('Email o contrasena incorrectos. Verifica tus datos.');
-        } else {
-                navigate('/dashboard');
-        }
-        setLoading(false);
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    try {
+      await signInWithEmailAndPassword(auth, form.email, form.password);
+      navigate('/dashboard');
+    } catch (err) {
+      setError('Email o contraseña incorrectos. Verifica tus datos.');
+    }
+    setLoading(false);
   };
 
   return (

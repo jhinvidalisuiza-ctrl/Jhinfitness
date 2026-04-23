@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { supabase } from './supabaseClient';
+import { auth } from './firebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth';
 
 // Pages
 import Home from './pages/Home';
@@ -36,16 +37,12 @@ function App() {
     const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-                setUser(session?.user ?? null);
-                setLoading(false);
-        });
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user ?? null);
+      setLoading(false);
+    });
 
-                const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-                        setUser(session?.user ?? null);
-                });
-
-                return () => subscription.unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   return (

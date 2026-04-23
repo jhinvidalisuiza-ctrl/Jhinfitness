@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../App';
-import { supabase } from '../supabaseClient';
+import { auth } from '../firebaseConfig';
+import { signOut } from 'firebase/auth';
 import { Menu, X, Dumbbell, LogOut, User } from 'lucide-react';
 import './Navbar.css';
 
@@ -11,9 +12,13 @@ function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
-        await supabase.auth.signOut();
-        navigate('/');
-        setMenuOpen(false);
+    try {
+      await signOut(auth);
+      navigate('/');
+      setMenuOpen(false);
+    } catch (err) {
+      console.error('Error al cerrar sesión:', err);
+    }
   };
 
   return (
