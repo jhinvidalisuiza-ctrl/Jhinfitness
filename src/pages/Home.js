@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../App';
-import { ArrowRight, Dumbbell, Utensils, TrendingUp, Star, CheckCircle, Flame, Zap } from 'lucide-react';
+import { ArrowRight, Utensils, Dumbbell, TrendingUp, CheckCircle, Flame, Zap, Activity } from 'lucide-react';
 import './Home.css';
 
 function Home() {
@@ -10,38 +10,38 @@ function Home() {
   const fases = [
     {
       numero: '01',
-      nombre: 'Fase Ignición',
-      subtitulo: 'Fase 1',
-      descripcion: 'Desintoxica tu organismo y rompe la adiccion al azucar. El primer paso hacia tu transformacion.',
+      nombre: 'Ignición',
+      subtitulo: 'DESINTOXICA',
+      descripcion: 'Rompe la adicción al azúcar y prepara tu cuerpo para la transformación.',
       dias: 21,
-      color: '#f97316',
+      color: 'oklch(52% 0.14 145)',
       img: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80',
     },
     {
       numero: '02',
-      nombre: 'Fase Combustión',
-      subtitulo: 'Fase 2',
-      descripcion: 'Maximiza la perdida de grasa corporal y reduce medidas con la dieta keto optimizada.',
+      nombre: 'Combustión',
+      subtitulo: 'QUEMA',
+      descripcion: 'Maximiza la pérdida de grasa corporal con dieta keto optimizada.',
       dias: 21,
-      color: '#22C55E',
+      color: 'oklch(52% 0.14 145)',
       img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80',
     },
     {
       numero: '03',
-      nombre: 'Fase Maestría',
-      subtitulo: 'Fase 3',
-      descripcion: 'La graduacion de este estilo de vida. Incorpora el ayuno intermitente para potenciar resultados.',
+      nombre: 'Maestría',
+      subtitulo: 'DOMINA',
+      descripcion: 'Incorpora el ayuno intermitente para potenciar resultados definitivos.',
       dias: 21,
-      color: '#6B8FA4',
+      color: 'oklch(52% 0.14 145)',
       img: 'https://images.unsplash.com/photo-1547592592-16d59900542d?w=600&q=80',
     },
     {
       numero: '04',
-      nombre: 'Fase Renovación',
-      subtitulo: 'Fase 4',
-      descripcion: 'Resetea tu metabolismo en 7 dias y alcanza el equilibrio hormonal definitivo.',
+      nombre: 'Renovación',
+      subtitulo: 'INTEGRA',
+      descripcion: 'Estabiliza tu metabolismo y alcanza el equilibrio hormonal.',
       dias: 7,
-      color: '#a855f7',
+      color: 'oklch(52% 0.14 145)',
       img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80',
     },
   ];
@@ -58,40 +58,49 @@ function Home() {
 
       {/* HERO */}
       <section className="hero-section">
-        <div className="hero-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1400&q=80')" }} />
-        <div className="hero-overlay" />
-        <div className="container hero-content">
+        <div className="hero-content container">
           <div className="hero-badge">
-            <Flame size={16} /> Metodo DKP — Dr. Bayter
+            <Activity size={14} style={{ fill: 'currentColor' }} />
+            Método DKP
           </div>
           <h1 className="hero-title">
-            Transforma tu cuerpo con el<br />
-            <span className="text-accent">Metodo Keto</span>
+            Transforma tu cuerpo en<br />
+            <span className="hero-highlight">70 días</span>
           </h1>
           <p className="hero-subtitle">
-            El plan nutricional keto mas completo, con 4 fases, 70 dias de menus diarios,
-            recetas deliciosas y seguimiento de tu progreso.
+            Un programa estructurado en 4 fases con menús keto completos, recetas deliciosas
+            y seguimiento científico de tu progreso.
           </p>
           <div className="hero-cta">
             {user ? (
-              <Link to="/dietas" className="btn-hero-primary">
+              <Link to="/dietas" className="btn-primary">
                 Ver mi Plan <ArrowRight size={18} />
               </Link>
             ) : (
               <>
-                <Link to="/registro" className="btn-hero-primary">
+                <Link to="/registro" className="btn-primary">
                   Comenzar Gratis <ArrowRight size={18} />
                 </Link>
-                <Link to="/login" className="btn-hero-secondary">
-                  Iniciar Sesion
+                <Link to="/login" className="btn-ghost">
+                  Tengo cuenta
                 </Link>
               </>
             )}
           </div>
-          <div className="hero-stats">
-            <div className="stat"><Star size={16} /><span>70 dias de menus</span></div>
-            <div className="stat"><Zap size={16} /><span>4 fases del programa</span></div>
-            <div className="stat"><CheckCircle size={16} /><span>Recetas incluidas</span></div>
+
+          <div className="hero-features">
+            <div className="feature-item">
+              <div className="feature-number">70</div>
+              <span>Días de menús</span>
+            </div>
+            <div className="feature-item">
+              <div className="feature-number">4</div>
+              <span>Fases progresivas</span>
+            </div>
+            <div className="feature-item">
+              <div className="feature-number">∞</div>
+              <span>Recetas keto</span>
+            </div>
           </div>
         </div>
       </section>
@@ -100,32 +109,27 @@ function Home() {
       <section className="fases-section">
         <div className="container">
           <div className="section-header">
-            <h2>Las 4 Fases del <span className="text-accent">Metodo DKP</span></h2>
-            <p>Un programa estructurado de 70 dias para transformar tu cuerpo y habitos</p>
+            <span className="section-overline">LA TRANSFORMACIÓN</span>
+            <h2>4 Fases. 70 Días. Resultados Reales.</h2>
           </div>
           <div className="fases-grid">
             {fases.map((f, i) => (
-              <div key={i} className="fase-card" style={{ '--fase-color': f.color }}>
-                <div className="fase-img-wrap">
-                  <img src={f.img} alt={f.nombre} className="fase-img" />
-                  <div className="fase-numero">{f.numero}</div>
+              <div key={i} className="fase-card">
+                <div className="fase-header">
+                  <div className="fase-badge" style={{ backgroundColor: f.color }}>
+                    {f.numero}
+                  </div>
+                  <span className="fase-label">{f.subtitulo}</span>
                 </div>
-                <div className="fase-info">
-                  <span className="fase-subtitulo">{f.subtitulo}</span>
+                <img src={f.img} alt={f.nombre} className="fase-img" />
+                <div className="fase-body">
                   <h3>{f.nombre}</h3>
                   <p>{f.descripcion}</p>
-                  <span className="fase-dias">{f.dias} dias</span>
+                  <span className="fase-duration">{f.dias} días</span>
                 </div>
               </div>
             ))}
           </div>
-          {user && (
-            <div className="fases-cta">
-              <Link to="/dietas" className="btn-hero-primary">
-                Ver Menus Diarios <ArrowRight size={18} />
-              </Link>
-            </div>
-          )}
         </div>
       </section>
 
@@ -133,15 +137,15 @@ function Home() {
       <section className="beneficios-section">
         <div className="container">
           <div className="section-header">
-            <h2>Por que <span className="text-accent">JhinFitness</span></h2>
-            <p>Todo lo que necesitas para transformar tu cuerpo en un solo lugar</p>
+            <span className="section-overline">TODO INCLUIDO</span>
+            <h2>Herramientas completas para tu transformación</h2>
           </div>
           <div className="beneficios-grid">
             {[
-              { icon: <Utensils size={28} />, titulo: 'Menus Diarios', desc: '21 dias de menus keto completos con desayuno, almuerzo y cena para cada fase.' },
-              { icon: <Dumbbell size={28} />, titulo: 'Programas Fitness', desc: 'Rutinas de entrenamiento adaptadas a tu nivel para complementar tu dieta.' },
-              { icon: <TrendingUp size={28} />, titulo: 'Seguimiento', desc: 'Registra tu progreso y visualiza tus avances dia a dia.' },
-              { icon: <CheckCircle size={28} />, titulo: 'Recetas Keto', desc: 'Biblioteca de recetas deliciosas y faciles de preparar.' },
+              { icon: <Utensils size={24} />, titulo: 'Menús Diarios', desc: 'Desayuno, almuerzo y cena planificados para cada fase.' },
+              { icon: <Dumbbell size={24} />, titulo: 'Ejercicios', desc: 'Rutinas adaptadas a tu nivel para potenciar resultados.' },
+              { icon: <TrendingUp size={24} />, titulo: 'Seguimiento', desc: 'Visualiza tu progreso en tiempo real con gráficos.' },
+              { icon: <CheckCircle size={24} />, titulo: 'Recetas', desc: 'Biblioteca de opciones deliciosas y fáciles de preparar.' },
             ].map((b, i) => {
               return (
                 <div key={i} className="beneficio-card">
@@ -158,10 +162,10 @@ function Home() {
       {/* CTA FINAL */}
       {!user && (
         <section className="cta-section">
-          <div className="container">
-            <h2>Empieza tu transformacion <span className="text-accent">hoy</span></h2>
-            <p>Unete a miles de personas que ya transformaron su cuerpo con el Metodo DKP</p>
-            <Link to="/registro" className="btn-hero-primary">
+          <div className="container cta-content">
+            <h2>Comienza hoy mismo</h2>
+            <p>Únete a miles de personas que ya transformaron su cuerpo con el Método DKP</p>
+            <Link to="/registro" className="btn-primary btn-large">
               Crear Cuenta Gratis <ArrowRight size={18} />
             </Link>
           </div>
