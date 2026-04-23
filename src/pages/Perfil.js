@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
+import { auth } from '../firebaseConfig';
+import { signOut } from 'firebase/auth';
 import { useAuth } from '../App';
 import { Save, User, Mail, Calendar, Lock, LogOut, Loader } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -82,8 +84,12 @@ const Perfil = () => {
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate('/');
+    try {
+      await signOut(auth);
+      navigate('/');
+    } catch (err) {
+      console.error('Error al cerrar sesión:', err);
+    }
   };
 
   return (
