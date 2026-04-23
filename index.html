@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JhinFitness — Dietas y Nutrición Saludable</title>
+  <meta name="description" content="Accede a tu plan personalizado del Método JhinFitness — Dietas y Nutrición Saludable." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .user-badge {
+      display: flex; align-items: center; gap: 10px; margin-left: auto;
+    }
+    .user-name {
+      color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 600;
+    }
+    .btn-logout {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.75); padding: 7px 14px; border-radius: 8px;
+      font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-logout:hover { background: rgba(227,30,36,0.2); border-color: rgba(227,30,36,0.4); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVBAR -->
+  <nav class="topnav" id="topnav">
+    <div class="topnav-inner">
+      <div class="topnav-logo">
+        <img src="logo.png" alt="JhinFitness Logo" class="logo-img" />
+        <span class="logo-fallback" style="display:none;"><strong>JhinFitness</strong></span>
+      </div>
+      <ul class="topnav-links" id="topnav-links">
+        <li><a href="#dashboard" class="nav-link active" data-section="dashboard">Inicio</a></li>
+        <li><a href="#metodo-jhin" class="nav-link" data-section="metodo-jhin">Método JhinFitness</a></li>
+        <li><a href="#historias" class="nav-link" data-section="historias">#Historias</a></li>
+        <li><a href="#comunidad" class="nav-link" data-section="comunidad">Comunidad</a></li>
+      </ul>
+      <div class="user-badge">
+        <span class="user-name" id="user-greeting"></span>
+        <button class="btn-logout" onclick="AUTH.logout()">
+          <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- LAYOUT WRAPPER -->
+  <div class="layout-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Método JhinFitness</div>
+          <ul class="sidebar-menu">
+            <li>
+              <a href="#" class="sidebar-link active" id="link-ignite" onclick="showPhase('ignite'); return false;">
+                <i class="fas fa-fire"></i>
+                <span>Ignite</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" id="link-burn" onclick="showPhase('burn'); return false;">
+                <i class="fas fa-tint"></i>
+                <span>Burn</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" id="link-flow" onclick="showPhase('flow'); return false;">
+                <i class="fas fa-sync-alt"></i>
+                <span>Flow</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" id="link-peak" onclick="showPhase('peak'); return false;">
+                <i class="fas fa-bolt"></i>
+                <span>Peak</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Extras</div>
+          <ul class="sidebar-menu">
+            <li>
+              <a href="#" class="sidebar-link" onclick="showExtras('salsitas'); return false;">
+                <i class="fas fa-pepper-hot"></i>
+                <span>Salsitas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" onclick="showExtras('bebidas'); return false;">
+                <i class="fas fa-coffee"></i>
+                <span>Bebidas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" onclick="showExtras('snacks'); return false;">
+                <i class="fas fa-cookie-bite"></i>
+                <span>Snacks Keto</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Información</div>
+          <ul class="sidebar-menu">
+            <li>
+              <a href="#" class="sidebar-link" onclick="showInfo('tutoriales'); return false;">
+                <i class="fas fa-play-circle"></i>
+                <span>Tutoriales</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link" onclick="showInfo('biblioteca'); return false;">
+                <i class="fas fa-book"></i>
+                <span>Biblioteca</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/573159185650" target="_blank" class="sidebar-link whatsapp-link">
+                <i class="fab fa-whatsapp"></i>
+                <span>Soporte</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="main-content">
+
+      <!-- DASHBOARD SECTION -->
+      <section class="content-section active" id="section-dashboard">
+
+        <!-- Facebook Banner -->
+        <div class="fb-banner">
+          <div class="fb-banner-left">
+            <div class="fb-icon-wrap">
+              <i class="fab fa-facebook-f fb-icon"></i>
+            </div>
+            <div class="fb-banner-text">
+              <h3>Únete al grupo privado de Facebook</h3>
+              <p>Comparte tu proceso e inspírate con las historias de nuestra comunidad.</p>
+            </div>
+          </div>
+          <a href="https://www.facebook.com/groups/jhinfitness" target="_blank" class="btn btn-green" id="btn-facebook-group">
+            INGRESA AL GRUPO <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Products Section -->
+        <div class="section-title-wrap">
+          <h2 class="section-title">Tus Productos</h2>
+        </div>
+
+        <div class="products-grid">
+
+          <!-- DKP Card -->
+          <div class="product-card" id="card-dkp">
+            <div class="product-card-image jhin-bg">
+              <div class="product-card-overlay">
+                <div class="product-badge">PLAN PREMIUM</div>
+                <div class="product-logo">
+                  <span class="dkp-letters">JHIN</span>
+                  <span class="dkp-subtitle">Dietas y Nutrición Saludable</span>
+                </div>
+                <div class="product-doctor-silhouette">
+                  <i class="fas fa-running doctor-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <h3 class="product-card-title">Método JhinFitness — 4 Fases</h3>
+              <p class="product-card-desc">4 Fases completas con menús diarios, recetas, listas de compras y guías detalladas para transformar tu salud.</p>
+              <button class="btn btn-green btn-full" id="btn-dkp-enter" onclick="switchToDKP()">
+                <i class="fas fa-sign-in-alt"></i> INGRESA AL MÉTODO AQUÍ
+              </button>
+            </div>
+          </div>
+
+          <!-- Total Fitness Card -->
+          <div class="product-card" id="card-fitness">
+            <div class="product-card-image fitness-bg">
+              <div class="product-card-overlay">
+                <div class="product-logo">
+                  <span class="fitness-letters">TOTAL</span>
+                  <span class="fitness-letters2">FITNESS</span>
+                  <span class="fitness-sub">JHINFITNESS TRAINING</span>
+                </div>
+                <div class="fitness-icon-wrap">
+                  <i class="fas fa-dumbbell fitness-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <h3 class="product-card-title">JhinFitness Total Training</h3>
+              <p class="product-card-desc">Programa completo de ejercicios diseñado para complementar tu plan nutricional y maximizar la pérdida de grasa.</p>
+              <a href="#" target="_blank" class="btn btn-dark btn-full" id="btn-fitness-buy">
+                <i class="fas fa-shopping-cart"></i> ¡ADQUIERELO YA!
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- DKP METHOD SECTION -->
+      <section class="content-section" id="section-metodo-dkp">
+
+        <div class="dkp-header">
+          <div class="dkp-plan-badge">
+            <i class="fas fa-crown"></i>
+            Tu plan actual es:
+          </div>
+          <h1 class="dkp-plan-title">Plan Premium 4 Fases — Método JhinFitness</h1>
+          <p class="dkp-plan-desc">Sigue las fases en orden para obtener los mejores resultados. Cada fase está diseñada para llevarte paso a paso hacia tu transformación.</p>
+        </div>
+
+        <!-- 4 Phases Grid -->
+        <div class="phases-grid" id="phases-grid">
+
+          <!-- Phase 1 - IGNITE -->
+          <div class="phase-card" id="phase-card-ignite" onclick="openPhaseDetail('ignite')">
+            <div class="phase-number">Fase 1</div>
+            <div class="phase-icon-wrap red">
+              <i class="fas fa-fire-alt"></i>
+            </div>
+            <h3 class="phase-name">Ignite 🔥</h3>
+            <p class="phase-desc">Enciende tu metabolismo, desintoxica el organismo y rompe la adicción al azúcar.</p>
+            <div class="phase-duration"><i class="fas fa-clock"></i> 3 Semanas · 21 días</div>
+            <button class="btn btn-green phase-btn">
+              <i class="fas fa-play"></i> Comenzar Ignite
+            </button>
+          </div>
+
+          <!-- Phase 2 - BURN -->
+          <div class="phase-card" id="phase-card-burn" onclick="openPhaseDetail('burn')">
+            <div class="phase-number">Fase 2</div>
+            <div class="phase-icon-wrap orange">
+              <i class="fas fa-tint"></i>
+            </div>
+            <h3 class="phase-name">Burn ⚡</h3>
+            <p class="phase-desc">Maximiza la quema de grasa corporal y pierde medidas de forma acelerada.</p>
+            <div class="phase-duration"><i class="fas fa-clock"></i> 3 Semanas · 21 días</div>
+            <button class="btn btn-outline-green phase-btn">
+              <i class="fas fa-play"></i> Comenzar Burn
+            </button>
+          </div>
+
+          <!-- Phase 3 - FLOW -->
+          <div class="phase-card" id="phase-card-flow" onclick="openPhaseDetail('flow')">
+            <div class="phase-number">Fase 3</div>
+            <div class="phase-icon-wrap blue">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3 class="phase-name">Flow 🌊</h3>
+            <p class="phase-desc">Alcanza el ritmo sostenido de tu nuevo estilo de vida saludable.</p>
+            <div class="phase-duration"><i class="fas fa-clock"></i> 3 Semanas · 21 días</div>
+            <button class="btn btn-outline-green phase-btn">
+              <i class="fas fa-play"></i> Comenzar Flow
+            </button>
+          </div>
+
+          <!-- Phase 4 - PEAK -->
+          <div class="phase-card" id="phase-card-peak" onclick="openPhaseDetail('peak')">
+            <div class="phase-number">Fase 4</div>
+            <div class="phase-icon-wrap green">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="phase-name">Peak 🏆</h3>
+            <p class="phase-desc">Llega al máximo nivel: resetea tu metabolismo y consolida tu transformación.</p>
+            <div class="phase-duration"><i class="fas fa-clock"></i> 1 Semana · 7 días</div>
+            <button class="btn btn-outline-green phase-btn">
+              <i class="fas fa-play"></i> Comenzar Peak
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PHASE DETAIL SECTION -->
+      <section class="content-section" id="section-phase-detail">
+
+        <div class="phase-detail-header">
+          <button class="btn-back" id="btn-back-phases" onclick="backToPhases()">
+            <i class="fas fa-chevron-left"></i> Volver al Método JhinFitness
+          </button>
+          <div class="phase-detail-title-wrap">
+            <span class="phase-detail-badge" id="phase-detail-badge">Fase 1</span>
+            <h2 class="phase-detail-title" id="phase-detail-title">Keto Bayter</h2>
+          </div>
+          <div class="phase-download-btns">
+            <a href="#" class="btn btn-outline-sm" id="btn-download-secrets">
+              <i class="fas fa-download"></i> Descargar Secretos Fase
+            </a>
+            <a href="#" class="btn btn-outline-sm" id="btn-download-foods">
+              <i class="fas fa-list"></i> Descargar Alimentos Permitidos
+            </a>
+          </div>
+        </div>
+
+        <!-- Week Tabs -->
+        <div class="week-tabs" id="week-tabs">
+          <button class="week-tab active" onclick="selectWeek(1, this)">Semana 1</button>
+          <button class="week-tab" onclick="selectWeek(2, this)">Semana 2</button>
+          <button class="week-tab" onclick="selectWeek(3, this)">Semana 3</button>
+        </div>
+
+        <!-- Day Selector -->
+        <div class="day-selector" id="day-selector">
+          <!-- Days injected by JS -->
+        </div>
+
+        <!-- Daily Menu -->
+        <div class="daily-menu" id="daily-menu">
+          <!-- Meals injected by JS -->
+        </div>
+
+      </section>
+
+      <!-- RECIPE DETAIL SECTION -->
+      <section class="content-section" id="section-recipe-detail">
+        <div class="recipe-header">
+          <button class="btn-back" id="btn-back-menu" onclick="backToMenu()">
+            <i class="fas fa-chevron-left"></i> Volver al menú
+          </button>
+          <div>
+            <h2 class="recipe-title" id="recipe-title">Medallones con filetes de coliflor</h2>
+            <span class="recipe-portions"><i class="fas fa-user"></i> 1 persona</span>
+          </div>
+        </div>
+
+        <div class="recipe-body">
+          <div class="recipe-col">
+            <div class="recipe-section-title"><i class="fas fa-check-circle"></i> Ingredientes</div>
+            <ul class="ingredients-list" id="ingredients-list">
+              <!-- Injected by JS -->
+            </ul>
+          </div>
+          <div class="recipe-col">
+            <div class="recipe-section-title"><i class="fas fa-list-ol"></i> Preparación</div>
+            <ol class="steps-list" id="steps-list">
+              <!-- Injected by JS -->
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXTRAS SECTION -->
+      <section class="content-section" id="section-extras">
+        <div class="extras-header">
+          <h2 class="section-title" id="extras-title">Salsitas Keto</h2>
+        </div>
+        <div class="extras-grid" id="extras-grid">
+          <!-- Injected by JS -->
+        </div>
+      </section>
+
+      <!-- INFO SECTION -->
+      <section class="content-section" id="section-info">
+        <div class="info-header">
+          <h2 class="section-title" id="info-title">Tutoriales</h2>
+        </div>
+        <div class="info-grid" id="info-grid">
+          <!-- Injected by JS -->
+        </div>
+      </section>
+
+      <!-- HISTORIAS Section -->
+      <section class="content-section" id="section-historias">
+        <div class="section-title-wrap"><h2 class="section-title">#Historias de Transformación</h2></div>
+        <div class="historias-grid" id="historias-grid"></div>
+      </section>
+
+      <!-- COMUNIDAD Section -->
+      <section class="content-section" id="section-comunidad">
+        <div class="section-title-wrap"><h2 class="section-title">Nuestra Comunidad</h2></div>
+        <div class="comunidad-grid" id="comunidad-grid"></div>
+      </section>
+
+      <!-- ADMIN Section -->
+      <section class="content-section" id="section-admin">
+        <div class="admin-section">
+          <div class="admin-header">
+            <h2 class="section-title">Panel de Administración</h2>
+            <button class="btn btn-green" onclick="showAddUserForm()"><i class="fas fa-plus"></i> Nuevo Usuario</button>
+          </div>
+          <table class="admin-table" id="admin-table"></table>
+          <div class="admin-form" id="admin-form" style="display:none"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2025 JhinFitness · Dietas y Nutrición Saludable · Todos los derechos reservados</p>
+      <a href="#" target="_blank">Términos y Condiciones</a>
+    </div>
+  </footer>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

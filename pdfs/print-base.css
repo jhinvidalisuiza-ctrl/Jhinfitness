@@ -1,0 +1,25 @@
+/* JhinFitness — Print Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Figtree',sans-serif;color:#1a2040;line-height:1.6;padding:40px}
+.print-header{display:flex;align-items:center;gap:16px;border-bottom:2px solid #2a7a2f;padding-bottom:16px;margin-bottom:24px}
+.print-logo{height:50px}
+.print-brand{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:#1a2040}
+.print-phase{font-size:12px;color:#2a7a2f;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:#1a2040;margin-bottom:16px}
+h2{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:#2a7a2f;margin:20px 0 10px}
+h3{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;margin:14px 0 8px}
+p,li{font-size:13px;line-height:1.7}
+ul{padding-left:20px;margin-bottom:12px}
+li{margin-bottom:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12px}
+th{background:#1a2040;color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+td{padding:6px 10px;border-bottom:1px solid #e0e4ea}
+.note{background:#f0f7f0;border-radius:6px;padding:12px 16px;margin:16px 0;font-size:12px;color:#2a5a2f}
+.print-footer{margin-top:32px;padding-top:12px;border-top:1px solid #ddd;font-size:10px;color:#888;text-align:center}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media print{
+  body{padding:20px}
+  .no-print{display:none}
+  @page{margin:1.5cm}
+}
