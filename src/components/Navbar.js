@@ -34,6 +34,9 @@ function Navbar() {
 </button>
 
         <div className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          <NavLink to="/descargas" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMenuOpen(false)}>
+            Descargas
+              </NavLink>
           <NavLink to="/dietas" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMenuOpen(false)}>
             Dietas
               </NavLink>

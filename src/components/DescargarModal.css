@@ -1,0 +1,177 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 17, 42, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: oklch(18% 0.03 265);
+  border: 1px solid oklch(35% 0.08 265);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  max-height: 85vh;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid oklch(25% 0.05 265);
+}
+
+.modal-header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.75rem;
+  color: oklch(97% 0.01 265);
+  margin: 0;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: oklch(75% 0.04 265);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: oklch(97% 0.01 265);
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  color: oklch(97% 0.01 265);
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: oklch(75% 0.04 265);
+  font-size: 1.1rem;
+}
+
+.contenido-pdf {
+  line-height: 1.8;
+}
+
+.contenido-pdf h1,
+.contenido-pdf h2,
+.contenido-pdf h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: oklch(97% 0.01 265);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.contenido-pdf h1 {
+  font-size: 1.75rem;
+}
+
+.contenido-pdf h2 {
+  font-size: 1.5rem;
+  color: oklch(52% 0.14 145);
+}
+
+.contenido-pdf table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  border: 1px solid oklch(25% 0.05 265);
+}
+
+.contenido-pdf th {
+  background: oklch(22% 0.08 265);
+  color: oklch(52% 0.14 145);
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid oklch(25% 0.05 265);
+}
+
+.contenido-pdf td {
+  padding: 0.75rem;
+  border: 1px solid oklch(25% 0.05 265);
+}
+
+.contenido-pdf tr:nth-child(even) {
+  background: oklch(15% 0.02 265);
+}
+
+.contenido-pdf ul,
+.contenido-pdf ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.contenido-pdf li {
+  margin: 0.5rem 0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  border-top: 1px solid oklch(25% 0.05 265);
+  gap: 1rem;
+}
+
+.btn-descargar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: oklch(52% 0.14 145);
+  color: oklch(11% 0.02 265);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(82, 168, 72, 0.25);
+}
+
+.btn-descargar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(82, 168, 72, 0.35);
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-height: 90vh;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .contenido-pdf table {
+    font-size: 0.9rem;
+  }
+
+  .contenido-pdf th,
+  .contenido-pdf td {
+    padding: 0.5rem;
+  }
+}

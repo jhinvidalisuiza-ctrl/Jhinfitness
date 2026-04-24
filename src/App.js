@@ -14,6 +14,7 @@ import RecetaDetalle from './pages/RecetaDetalle';
 import Programas from './pages/Programas';
 import Progreso from './pages/Progreso';
 import Perfil from './pages/Perfil';
+import Descargas from './pages/Descargas';
 
 // Components
 import Navbar from './components/Navbar';
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/registro" element={<Register />} />
+              <Route path="/descargas" element={<Descargas />} />
               <Route path="/dietas" element={<PrivateRoute><Dietas /></PrivateRoute>} />
                 <Route path="/recetas" element={<PrivateRoute><Recetas /></PrivateRoute>} />
                 <Route path="/recetas/:id" element={<PrivateRoute><RecetaDetalle /></PrivateRoute>} />

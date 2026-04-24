@@ -1,0 +1,140 @@
+{
+  "descargas": [
+    {
+      "id": "alimentos-ignite",
+      "fase": "Ignite",
+      "titulo": "Alimentos Permitidos — Fase Ignition",
+      "tipo": "alimentos",
+      "archivo": "alimentos-ignite.html",
+      "descripcion": "Listado completo de alimentos permitidos en la Fase 1 Ignition con información nutricional"
+    },
+    {
+      "id": "secretos-ignite",
+      "fase": "Ignite",
+      "titulo": "Secretos de Éxito — Fase Ignition",
+      "tipo": "secretos",
+      "archivo": "secretos-ignite.html",
+      "descripcion": "Tips y estrategias exclusivas para maximizar resultados en la Fase Ignition"
+    },
+    {
+      "id": "compras-ignite-s1",
+      "fase": "Ignite",
+      "titulo": "Lista de Compras — Semana 1",
+      "tipo": "compras",
+      "archivo": "compras-ignite-s1.html",
+      "descripcion": "Lista de compras optimizada para la primera semana de Ignition"
+    },
+    {
+      "id": "compras-ignite-s2",
+      "fase": "Ignite",
+      "titulo": "Lista de Compras — Semana 2",
+      "tipo": "compras",
+      "archivo": "compras-ignite-s2.html",
+      "descripcion": "Lista de compras optimizada para la segunda semana de Ignition"
+    },
+    {
+      "id": "compras-ignite-s3",
+      "fase": "Ignite",
+      "titulo": "Lista de Compras — Semana 3",
+      "tipo": "compras",
+      "archivo": "compras-ignite-s3.html",
+      "descripcion": "Lista de compras optimizada para la tercera semana de Ignition"
+    },
+    {
+      "id": "alimentos-burn",
+      "fase": "Burn",
+      "titulo": "Alimentos Permitidos — Fase Combustion",
+      "tipo": "alimentos",
+      "archivo": "alimentos-burn.html",
+      "descripcion": "Listado completo de alimentos permitidos en la Fase 2 Combustion"
+    },
+    {
+      "id": "secretos-burn",
+      "fase": "Burn",
+      "titulo": "Secretos de Éxito — Fase Combustion",
+      "tipo": "secretos",
+      "archivo": "secretos-burn.html",
+      "descripcion": "Tips y estrategias para la Fase Combustion"
+    },
+    {
+      "id": "compras-burn-s1",
+      "fase": "Burn",
+      "titulo": "Lista de Compras — Semana 1",
+      "tipo": "compras",
+      "archivo": "compras-burn-s1.html",
+      "descripcion": "Lista de compras para la primera semana de Combustion"
+    },
+    {
+      "id": "compras-burn-s2",
+      "fase": "Burn",
+      "titulo": "Lista de Compras — Semana 2",
+      "tipo": "compras",
+      "archivo": "compras-burn-s2.html",
+      "descripcion": "Lista de compras para la segunda semana de Combustion"
+    },
+    {
+      "id": "compras-burn-s3",
+      "fase": "Burn",
+      "titulo": "Lista de Compras — Semana 3",
+      "tipo": "compras",
+      "archivo": "compras-burn-s3.html",
+      "descripcion": "Lista de compras para la tercera semana de Combustion"
+    },
+    {
+      "id": "alimentos-flow",
+      "fase": "Flow",
+      "titulo": "Alimentos Permitidos — Fase Mastery",
+      "tipo": "alimentos",
+      "archivo": "alimentos-flow.html",
+      "descripcion": "Listado de alimentos permitidos en la Fase 3 Mastery"
+    },
+    {
+      "id": "secretos-flow",
+      "fase": "Flow",
+      "titulo": "Secretos de Éxito — Fase Mastery",
+      "tipo": "secretos",
+      "archivo": "secretos-flow.html",
+      "descripcion": "Tips y estrategias para la Fase Mastery"
+    },
+    {
+      "id": "compras-flow-s1",
+      "fase": "Flow",
+      "titulo": "Lista de Compras — Semana 1",
+      "tipo": "compras",
+      "archivo": "compras-flow-s1.html",
+      "descripcion": "Lista de compras para la primera semana de Mastery"
+    },
+    {
+      "id": "compras-flow-s2",
+      "fase": "Flow",
+      "titulo": "Lista de Compras — Semana 2",
+      "tipo": "compras",
+      "archivo": "compras-flow-s2.html",
+      "descripcion": "Lista de compras para la segunda semana de Mastery"
+    },
+    {
+      "id": "compras-flow-s3",
+      "fase": "Flow",
+      "titulo": "Lista de Compras — Semana 3",
+      "tipo": "compras",
+      "archivo": "compras-flow-s3.html",
+      "descripcion": "Lista de compras para la tercera semana de Mastery"
+    },
+    {
+      "id": "secretos-peak",
+      "fase": "Peak",
+      "titulo": "Secretos de Éxito — Fase Renewal",
+      "tipo": "secretos",
+      "archivo": "secretos-peak.html",
+      "descripcion": "Tips finales para la Fase Renewal"
+    },
+    {
+      "id": "compras-peak-s1",
+      "fase": "Peak",
+      "titulo": "Lista de Compras — Semana Renewal",
+      "tipo": "compras",
+      "archivo": "compras-peak-s1.html",
+      "descripcion": "Lista de compras para la semana de Renewal"
+    }
+  ]
+}
